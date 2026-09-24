@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,
+      initial-scale=1.0,
+      maximum-scale=1.0,
+      user-scalable=no">
+
+<title>VERY IMPORTANT QUESTION 💀</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    min-height:100dvh;
+    overflow:hidden;
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(
+        circle at top,
+        #3a3a3a,
+        #151515 55%,
+        #050505
+    );
+
+    color:white;
+
+    -webkit-tap-highlight-color:transparent;
+}
+
+
+/* CARD */
+
+.card{
+    width:min(92vw,520px);
+
+    padding:35px 22px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:28px;
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+    0 25px 80px rgba(0,0,0,.55);
+
+    position:relative;
+    z-index:2;
+}
+
+
+/* EMOJI */
+
+.emoji{
+    font-size:65px;
+    margin-bottom:15px;
+
+    animation:float 2s ease-in-out infinite;
+}
+
+
+/* TEXT */
+
+h1{
+    font-size:clamp(22px,6vw,30px);
+
+    margin-bottom:12px;
+
+    line-height:1.2;
+}
+
+#subText{
+    color:#bbb;
+
+    min-height:48px;
+
+    line-height:1.5;
+}
+
+
+/* BUTTONS */
+
+#yesBtn,
+#noBtn{
+
+    position:fixed;
+
+    z-index:20;
+
+    border:none;
+
+    border-radius:50px;
+
+    padding:14px 28px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    color:white;
+
+    cursor:pointer;
+
+    touch-action:none;
+
+    -webkit-user-select:none;
+    user-select:none;
+
+    transition:
+    left .18s ease,
+    top .18s ease,
+    transform .18s ease;
+}
+
+#yesBtn{
+    background:#00d26a;
+
+    box-shadow:
+    0 8px 25px rgba(0,210,106,.35);
+}
+
+#noBtn{
+    background:#ff3158;
+}
+
+
+/* PHOTO */
+
+#photoBox{
+    display:none;
+
+    animation:photoReveal .7s ease;
+}
+
+#photoBox img{
+
+    display:block;
+
+    width:100%;
+
+    max-height:55vh;
+
+    object-fit:contain;
+
+    border-radius:20px;
+
+    border:3px solid rgba(255,255,255,.2);
+
+    box-shadow:
+    0 15px 45px rgba(0,0,0,.55);
+}
+
+#photoText{
+
+    margin-top:18px;
+
+    font-size:clamp(19px,5vw,25px);
+
+    font-weight:800;
+
+    line-height:1.4;
+}
+
+
+/* SOUND AREA */
+
+#soundArea{
+
+    display:none;
+
+    margin-top:22px;
+
+    animation:soundAppear .5s ease;
+}
+
+#soundHint{
+
+    color:#ccc;
+
+    font-size:15px;
+
+    margin-bottom:12px;
+}
+
+#soundBtn{
+
+    border:none;
+
+    border-radius:50px;
+
+    padding:15px 25px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff3158,
+        #ff6b35
+    );
+
+    box-shadow:
+    0 8px 25px rgba(255,49,88,.35);
+
+    cursor:pointer;
+
+    touch-action:manipulation;
+
+    animation:pulse 1.5s infinite;
+}
+
+#soundBtn:active{
+    transform:scale(.94);
+}
+
+
+/* PARTICLES */
+
+.particle{
+
+    position:fixed;
+
+    pointer-events:none;
+
+    z-index:1000;
+
+    font-size:25px;
+
+    animation:
+    particleUp 3s linear forwards;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+@keyframes photoReveal{
+
+    from{
+        opacity:0;
+
+        transform:
+        scale(.65)
+        rotate(-5deg);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+        scale(1)
+        rotate(0);
+    }
+}
+
+@keyframes soundAppear{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        box-shadow:
+        0 8px 25px rgba(255,49,88,.35);
+    }
+
+    50%{
+        box-shadow:
+        0 8px 35px rgba(255,49,88,.75);
+    }
+}
+
+@keyframes particleUp{
+
+    from{
+        transform:
+        translateY(0)
+        scale(1);
+
+        opacity:1;
+    }
+
+    to{
+        transform:
+        translateY(-100vh)
+        scale(1.5);
+
+        opacity:0;
+    }
+}
+
+
+/* PHONE */
+
+@media(max-width:500px){
+
+    .card{
+        padding:30px 18px;
+    }
+
+    .emoji{
+        font-size:55px;
+    }
+
+    h1{
+        font-size:23px;
+    }
+
+    #yesBtn,
+    #noBtn{
+        padding:13px 22px;
+        font-size:16px;
+    }
+
+    #photoBox img{
+        max-height:45vh;
+    }
+
+    #soundBtn{
+        width:90%;
+        max-width:330px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="card">
+
+
+    <!-- QUESTION -->
+
+    <div id="questionArea">
+
+        <div
+            class="emoji"
+            id="mainEmoji">
+            💀
+        </div>
+
+        <h1 id="question">
+            Theres something you hav to see  🤨
+        </h1>
+
+        <p id="subText">
+            Choose carefully... 👀
+        </p>
+
+    </div>
+
+
+    <!-- PHOTO -->
+
+    <div id="photoBox">
+
+        <img
+            src="prank.jpg"
+            alt="Gotcha">
+
+        <div id="photoText">
+            Huu Guru nan Joblesse en madthiya 💀😂
+        </div>
+
+
+        <!-- SOUND -->
+
+        <div id="soundArea">
+
+            <div id="soundHint">
+                WAIT... THERE'S MORE 💀
+            </div>
+
+            <button id="soundBtn">
+                🔊 TAP TO HEAR THIS 😂
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- RUNAWAY BUTTONS -->
+
+<button id="yesBtn">
+    YES 😇
+</button>
+
+<button id="noBtn">
+    NO 😭
+</button>
+
+
+<!-- AUDIO -->
+
+<audio
+    id="bgMusic"
+    preload="auto">
+
+    <source
+        src="./voice.mp3.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+<script>
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const yesBtn =
+document.getElementById("yesBtn");
+
+const noBtn =
+document.getElementById("noBtn");
+
+const questionArea =
+document.getElementById("questionArea");
+
+const photoBox =
+document.getElementById("photoBox");
+
+const subText =
+document.getElementById("subText");
+
+const soundArea =
+document.getElementById("soundArea");
+
+const soundBtn =
+document.getElementById("soundBtn");
+
+const bgMusic =
+document.getElementById("bgMusic");
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+let attempts = 0;
+
+let revealed = false;
+
+let lastTouch = 0;
+
+
+/* =========================
+   MESSAGES
+========================= */
+
+const messages = [
+
+    "Nice try 😂",
+
+    "You really thought that would work 💀",
+
+    "STOP CHASING THE BUTTON 😭",
+
+    "Almost there... 👀",
+
+    "YOU FELL FOR IT 💀📸"
+
+];
+
+
+/* =========================
+   INITIAL BUTTON POSITION
+========================= */
+
+function placeButtons(){
+
+    const centerX =
+        window.innerWidth / 2;
+
+    const centerY =
+        window.innerHeight / 2 + 90;
+
+
+    const yesWidth =
+        yesBtn.offsetWidth;
+
+    const noWidth =
+        noBtn.offsetWidth;
+
+
+    const gap = 18;
+
+
+    const totalWidth =
+        yesWidth +
+        noWidth +
+        gap;
+
+
+    const startX =
+        centerX -
+        totalWidth / 2;
+
+
+    yesBtn.style.left =
+        startX + "px";
+
+    yesBtn.style.top =
+        centerY + "px";
+
+
+    noBtn.style.left =
+        startX +
+        yesWidth +
+        gap +
+        "px";
+
+    noBtn.style.top =
+        centerY + "px";
+}
+
+
+window.addEventListener(
+    "load",
+    function(){
+
+        setTimeout(
+            placeButtons,
+            100
+        );
+
+    }
+);
+
+
+/* =========================
+   MOVE BUTTON
+========================= */
+
+function moveButton(button){
+
+    if(revealed)
+        return;
+
+
+    attempts++;
+
+
+    const padding = 15;
+
+
+    const width =
+        button.offsetWidth;
+
+    const height =
+        button.offsetHeight;
+
+
+    const maxX =
+        window.innerWidth -
+        width -
+        padding;
+
+    const maxY =
+        window.innerHeight -
+        height -
+        padding;
+
+
+    const x =
+        padding +
+        Math.random() *
+        Math.max(
+            1,
+            maxX - padding
+        );
+
+
+    const y =
+        padding +
+        Math.random() *
+        Math.max(
+            1,
+            maxY - padding
+        );
+
+
+    button.style.left =
+        x + "px";
+
+    button.style.top =
+        y + "px";
+
+
+    subText.textContent =
+        messages[
+            Math.min(
+                attempts - 1,
+                messages.length - 1
+            )
+        ];
+
+
+    const scale =
+        Math.min(
+            1 + attempts * .05,
+            1.3
+        );
+
+
+    yesBtn.style.transform =
+        `scale(${scale})`;
+
+    noBtn.style.transform =
+        `scale(${scale})`;
+
+
+    if(attempts >= 5){
+
+        revealPrank();
+
+    }
+
+}
+
+
+/* =========================
+   DESKTOP
+========================= */
+
+yesBtn.addEventListener(
+    "mouseenter",
+    () => moveButton(yesBtn)
+);
+
+noBtn.addEventListener(
+    "mouseenter",
+    () => moveButton(noBtn)
+);
+
+
+/* =========================
+   PHONE
+========================= */
+
+yesBtn.addEventListener(
+    "touchstart",
+    function(e){
+
+        e.preventDefault();
+
+        lastTouch =
+            Date.now();
+
+        moveButton(yesBtn);
+
+    },
+    {passive:false}
+);
+
+
+noBtn.addEventListener(
+    "touchstart",
+    function(e){
+
+        e.preventDefault();
+
+        lastTouch =
+            Date.now();
+
+        moveButton(noBtn);
+
+    },
+    {passive:false}
+);
+
+
+/* =========================
+   CLICK FALLBACK
+========================= */
+
+yesBtn.addEventListener(
+    "click",
+    function(e){
+
+        e.preventDefault();
+
+        if(
+            Date.now() -
+            lastTouch < 600
+        )
+            return;
+
+        moveButton(yesBtn);
+    }
+);
+
+
+noBtn.addEventListener(
+    "click",
+    function(e){
+
+        e.preventDefault();
+
+        if(
+            Date.now() -
+            lastTouch < 600
+        )
+            return;
+
+        moveButton(noBtn);
+    }
+);
+
+
+/* =========================
+   REVEAL
+========================= */
+
+function revealPrank(){
+
+    if(revealed)
+        return;
+
+
+    revealed = true;
+
+
+    /* HIDE BUTTONS */
+
+    yesBtn.style.display =
+        "none";
+
+    noBtn.style.display =
+        "none";
+
+
+    /* HIDE QUESTION */
+
+    questionArea.style.display =
+        "none";
+
+
+    /* SHOW PHOTO */
+
+    photoBox.style.display =
+        "block";
+
+
+    /* SHOW SOUND BUTTON */
+
+    soundArea.style.display =
+        "block";
+
+
+    /* PARTICLES */
+
+    createParticles();
+}
+
+
+/* =========================
+   MANUAL AUDIO
+========================= */
+
+soundBtn.addEventListener(
+    "click",
+    function(){
+
+        bgMusic.currentTime = 0;
+
+        bgMusic.volume = 1;
+
+
+        bgMusic.play()
+
+        .then(function(){
+
+            soundBtn.textContent =
+                "🔊 PLAYING... 😂";
+
+        })
+
+        .catch(function(error){
+
+            console.log(
+                "Audio error:",
+                error
+            );
+
+            soundBtn.textContent =
+                "❌ AUDIO ERROR";
+
+        });
+
+    }
+);
+
+
+/* =========================
+   PARTICLES
+========================= */
+
+function createParticles(){
+
+    const emojis = [
+        "😂",
+        "💀",
+        "📸",
+        "😭",
+        "🤣",
+        "🔥",
+        "💥",
+        "👀"
+    ];
+
+
+    for(
+        let i=0;
+        i<45;
+        i++
+    ){
+
+        setTimeout(
+            function(){
+
+                const particle =
+                    document.createElement(
+                        "div"
+                    );
+
+                particle.className =
+                    "particle";
+
+                particle.textContent =
+                    emojis[
+                        Math.floor(
+                            Math.random() *
+                            emojis.length
+                        )
+                    ];
+
+                particle.style.left =
+                    Math.random() *
+                    100 +
+                    "vw";
+
+                particle.style.bottom =
+                    "-30px";
+
+                particle.style.animationDuration =
+                    2 +
+                    Math.random() * 2 +
+                    "s";
+
+
+                document.body.appendChild(
+                    particle
+                );
+
+
+                setTimeout(
+                    () => particle.remove(),
+                    4000
+                );
+
+            },
+            i * 55
+        );
+
+    }
+
+}
+
+
+/* =========================
+   RESIZE
+========================= */
+
+window.addEventListener(
+    "resize",
+    function(){
+
+        if(attempts === 0){
+
+            placeButtons();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
